@@ -41,3 +41,10 @@ Movie Details Page
 
 Movie Add Page
 ![image](https://user-images.githubusercontent.com/86228931/182006396-5a4088fc-d50a-4d4b-b023-fd8da0931959.png)
+
+Movie Update Page
+![image](https://user-images.githubusercontent.com/86228931/182006428-db99ab68-a4c9-4c6e-9e1f-ab5233643192.png)
+
+Movie Delete
+![image](https://user-images.githubusercontent.com/86228931/182006449-37091820-eb8a-48d2-a161-476946497f86.png)
+
