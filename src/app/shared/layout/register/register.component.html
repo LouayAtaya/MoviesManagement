@@ -1,0 +1,110 @@
+<app-loading-indicator *ngIf="loading$|async"></app-loading-indicator>
+
+<div class="register-page">
+    <img src="assets/img/back1.jpg" class="background" alt="Background Image">
+  <div class="register-box">
+    <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <a [routerLink]="['']" class="h1"><b>Movie</b>X</a>
+        </div>
+        <div class="card-body">
+          <p class="login-box-msg">  تسجيل حساب جديد </p>
+    
+          <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="input-group mb-4">
+                <input name="name" formControlName="name" type="text" class="form-control" placeholder="اسم المستخدم">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                  </div>
+                </div>
+            </div>
+            <div *ngIf="!name.valid && (name.dirty ||name.touched)">
+                <div class="alert alert-danger ">
+                  يرجى ادخال اسم المستخدم  !!
+                </div>
+            </div>
+            <div class="input-group mb-4">
+              <input type="email" name="email" formControlName="email" class="form-control" placeholder="البريد الالكتروني">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!email.valid && (email.dirty ||email.touched)">
+                <div class="alert alert-danger ">
+                  يرجى ادخال البريد الاكتروني   !!
+                </div>
+            </div>
+            <div class="input-group mb-4">
+                <input name="password" formControlName="password" type="password" class="form-control" placeholder="كلمة المرور">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!password.valid && (password.dirty ||password.touched)">
+                <div class="alert alert-danger ">
+                   يرجى ادخال كلمة المرور    !!
+                  <div [hidden]="!password?.errors['pattern']">
+                      كلمة المرور يجب ألا تقل عن 6, وتحتوي على احرف كبيرة وصغيرة وارقام
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-4">
+                <input name="passwordConfirm" formControlName="passwordConfirm" type="password" class="form-control" placeholder="أعد إدخال كلمة المرور">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!passwordConfirm.valid && (passwordConfirm.dirty ||passwordConfirm.touched)">
+                <div class="alert alert-danger ">
+                  يرجى تأكيد كلمة المرور  !!
+                  <div [hidden]="!passwordConfirm?.errors['mustMatch']">
+                      كلمة المرور غير متطابقة
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="icheck-primary">
+                  <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                  <label for="agreeTerms">
+                   اوافق على شروط  <a href="#">الاستخدام</a>
+                  </label>
+                </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-4">
+                <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary btn-block">تسجيل </button>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>
+    
+          <div class="social-auth-links text-center">
+            <a href="#" class="btn btn-block btn-primary">
+              <i class="fab fa-facebook mr-2"></i>
+              Sign up using Facebook
+            </a>
+            <a href="#" class="btn btn-block btn-danger">
+              <i class="fab fa-google-plus mr-2"></i>
+              Sign up using Google+
+            </a>
+          </div>
+    
+          <a [routerLink]="['/login']" class="text-center">   أملك حساب مسبق</a>
+        </div>
+        <!-- /.form-box -->
+      </div><!-- /.card -->
+     
+    </div>
+    <!-- /.register-box -->
+  </div>
+  <p-toast position="top-center"></p-toast>
+
+ 

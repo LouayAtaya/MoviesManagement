@@ -23,9 +23,27 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/admin-lte-with-rtl/plugins/fontawesome-free/css/all.min.css",
+              "node_modules/admin-lte-with-rtl/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+              "node_modules/admin-lte-with-rtl/dist/css/adminlte.rtl.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeng/resources/themes/nova/theme.css",
+              "node_modules/primeflex/primeflex.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/admin-lte-with-rtl/plugins/jquery/jquery.min.js",
+              "node_modules/admin-lte-with-rtl/plugins/bootstrap/js/bootstrap.bundle.min.js",
+              "node_modules/admin-lte-with-rtl/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "node_modules/admin-lte-with-rtl/dist/js/adminlte.js",
+              "node_modules/admin-lte-with-rtl/plugins/jquery-mousewheel/jquery.mousewheel.js",
+              "node_modules/admin-lte-with-rtl/plugins/raphael/raphael.min.js",
+              "node_modules/admin-lte-with-rtl/plugins/jquery-mapael/jquery.mapael.min.js",
+              "node_modules/admin-lte-with-rtl/plugins/jquery-mapael/maps/usa_states.min.js",
+              "node_modules/admin-lte-with-rtl/plugins/chart.js/Chart.min.js",
+              "node_modules/admin-lte-with-rtl/dist/js/pages/dashboard2.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,5 +115,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "82330fc2-5f7f-4d2c-b039-e76da0aeed9a"
   }
 }

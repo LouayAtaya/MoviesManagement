@@ -1,0 +1,98 @@
+<app-loading-indicator *ngIf="loading$|async"></app-loading-indicator>
+<p-toast position="top-center"></p-toast>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">قائمة  التصنيفات</h3>
+            <button [routerLink]="['/categories/add']" routerLinkActive="router-link-active"  style="float:left" type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-default">
+           إضافة تصنيف جديد
+            </button>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+  
+           
+  
+            <p-table #dt1 [value]="categories" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+               [loading]="loading" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" sortMode="multiple"
+                 styleClass="p-datatable-striped"
+                [globalFilterFields]="['id','name','created_at']"
+                responsiveLayout="scroll">
+  
+                <ng-template pTemplate="caption">
+                  <div class="flex">
+                    <button pButton label="" class="p-button-outlined mr-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                    <span class="p-input-icon-left ml-auto">
+                          <i class="pi pi-search"></i>
+                          <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="بحث" />
+                      </span>
+                  </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                      <th pSortableColumn="id">
+                        <div class="flex justify-content-center align-items-center">
+                         رقم التصنيف
+                          <p-columnFilter type="numeric" field="id" display="menu"></p-columnFilter>
+                          <p-sortIcon field="id"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="name">
+                        <div class="flex justify-content-center align-items-center">
+                            اسم التصنيف
+                          <p-columnFilter type="text" matchMode="in" [showMatchModes]="false" field="name" display="menu"></p-columnFilter>
+                          <p-sortIcon field="name"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="created_at">
+                        <div class="flex justify-content-center align-items-center">
+                          تاريخ البدء 
+                          <p-columnFilter type="date" field="created_at" display="menu"></p-columnFilter>
+                          <p-sortIcon field="created_at"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th pSortableColumn="updated_at">
+                        <div class="flex justify-content-center align-items-center">
+                          تاريخ التعديل 
+                          <p-columnFilter type="date" field="updated_at" display="menu"></p-columnFilter>
+                          <p-sortIcon field="updated_at"></p-sortIcon>
+                        </div>
+                      </th>
+                      <th> </th>
+  
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-category>
+                    <tr>
+                      <td>{{category.id}}</td>
+                      <td>{{category.name}}</td>
+                      <td>{{category.created_at|date:'medium'}}</td>
+                      <td>{{category.updated_at|date:'medium'}}</td>
+                      <td > 
+                        <button [routerLink]="['/categories/'+category.id]" routerLinkActive="router-link-active"  pButton pRipple icon="pi pi-briefcase" class="p-button-rounded p-button-success mr-2" ></button>
+                        <button [routerLink]="['/categories/update/'+category.id]" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning mr-2" ></button>
+                        <button (click)="deleteCategory(category.id)" pButton pRipple icon="pi pi-trash"  class="p-button-rounded p-button-danger mr-2"></button>  
+                      </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="paginatorleft">
+                  <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+                </ng-template>
+                <ng-template pTemplate="paginatorright">
+                    <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+                </ng-template>
+            </p-table>
+  
+         
+            
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      </div>
+  </div>
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

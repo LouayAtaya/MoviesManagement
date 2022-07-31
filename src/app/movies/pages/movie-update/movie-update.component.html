@@ -1,0 +1,105 @@
+<app-loading-indicator *ngIf="loading$|async"></app-loading-indicator>
+<p-toast position="top-center"></p-toast>
+
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row">
+      
+        <div class="col-md-12">
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3 class="card-title">معلومات الفيلم</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                   
+                    <div class="form-group col-md-5 ">
+                        <label for="name">الاسم </label>
+                        <input type="text" id="name" name="name" formControlName="name" class="form-control">       
+                        <div *ngIf="!name.valid && (name.dirty ||name.touched)">
+                          <div class="alert alert-danger ">
+                            يرجى ادخال الاسم بالشكل الصحيح!!
+                            <div [hidden]="!name?.errors['required']">
+                              الاسم مطلوب
+                            </div>
+                            <div [hidden]="!name?.errors['NotEmpty']">
+                              الاسم فارغ !!
+                            </div>
+                            <div [hidden]="!name?.errors['minlength']">
+                              عدد الأحرف يجب أن لا يقل عن {{name?.errors['minlength']?.requiredLength}}
+                            </div>
+                            <div [hidden]="!name.errors['maxlength']">
+                              عدد الأحرف يجب أن لا يزيد عن {{name.errors['maxlength']?.requiredLength}}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    <div class="form-group col-md-7">
+                      <label for="description"> الوصف</label>
+                      <textarea id="description" name="description" formControlName="description" class="form-control" rows="4" ></textarea>
+                      <div *ngIf="!description.valid && (description.dirty ||description.touched)">
+                        <div class="alert alert-danger ">
+                          يرجى ادخال الوصف بالشكل الصحيح!!
+                          
+                          <div [hidden]="!description.errors['maxlength']">
+                            عدد الأحرف يجب أن لا يزيد عن {{description.errors['maxlength']?.requiredLength}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="category_id">التصنيف </label>
+                        <select type="number" id="category_id" name="category_id" formControlName="category_id" class="form-control" >
+                          <option  value="" selected>
+                            اختر التصنيف
+                          </option>
+                          <option *ngFor="let movieCategory of movieCategoriesList" [ngValue]="movieCategory.id"> 
+                            {{movieCategory.name}}
+                          </option>
+                        </select> 
+                        <div *ngIf="!category_id.valid && (category_id.dirty ||category_id.touched)">
+                          <div class="alert alert-danger ">
+                            يرجى اختيار التصنيف  !!
+                           
+                          </div>
+                        </div>   
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <label for="image">اختر الصورة </label>
+                        <input type="file" id="image" name="image"  class="form-control-file" formControlName="fileInput" (change)="onFileChange($event)" >       
+                        <div *ngIf="!fileInput.valid && (fileInput.dirty ||fileInput.touched)">
+                            <div class="alert alert-danger ">
+                                يرجى اختيار الصورة
+                              </div>
+                            </div>
+                        </div>
+                        
+                </div>
+                
+                    
+            
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        
+        
+      </div>
+      <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4">
+          <input type="submit" [disabled]="!movieForm.valid" value="تعديل الفيلم " class="btn btn-success ">
+        </div>
+        <div class="col-4">
+        </div>
+      
+      </div>
+    </form>
+    
+    <br>
+    <br>
