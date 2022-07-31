@@ -2,6 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
 
+# Project Main Features
+
+This Project has been built using the following features and technologies:
+  - PrimNG
+  - Auth Guard
+  - Error Handling
+  - HttpInterceptor
+  - Sorting and Pagination (Lazy Loading from backend)
+  - Multible Modules in App 
+  - Module Lazy Loading
+  - Authentication & Authorization
+  - Reactive Forms
+  - Angular folder structure: Best Practices
+  - Reactive Programming
+  - Observable && Observable Operators
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
