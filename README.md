@@ -24,5 +24,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Login Page
 ![image](https://user-images.githubusercontent.com/86228931/182006264-4fcbc7f3-00bc-44bb-bb76-f0fb27473c54.png)
+
+Register Page
+![image](https://user-images.githubusercontent.com/86228931/182006288-809e3e50-bf1a-4ba2-a958-dafafc938510.png)
+
+Home Page
+![image](https://user-images.githubusercontent.com/86228931/182006313-e769206f-9be6-487d-a99b-b468645740e4.png)
+
+Movies Management
+![image](https://user-images.githubusercontent.com/86228931/182006335-83c132e1-1cec-4b82-a35b-df1f7f70caf7.png)
+
+Movie Details Page
+![image](https://user-images.githubusercontent.com/86228931/182006370-4f2c7c14-c55b-4d84-af50-65bf112622f0.png)
+
+Movie Add Page
+![image](https://user-images.githubusercontent.com/86228931/182006396-5a4088fc-d50a-4d4b-b023-fd8da0931959.png)
